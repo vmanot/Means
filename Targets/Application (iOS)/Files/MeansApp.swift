@@ -57,7 +57,17 @@ struct ContentView: View {
                     }
                 }
             }
+            .navigationBarTitle("User")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    PresentationLink(destination: SettingsView().environmentObject(repository)) {
+                        Image(systemName: .gear)
+                            .imageScale(.large)
+                    }
+                }
+            }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
