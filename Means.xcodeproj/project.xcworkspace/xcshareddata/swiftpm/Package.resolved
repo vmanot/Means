@@ -1,0 +1,70 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "API",
+        "repositoryURL": "git@github.com:vmanot/API.git",
+        "state": {
+          "branch": "master",
+          "revision": "71bcf24fa70203e3a22530225f0697fe87d0eee8",
+          "version": null
+        }
+      },
+      {
+        "package": "Coordinator",
+        "repositoryURL": "git@github.com:SwiftUIX/Coordinator.git",
+        "state": {
+          "branch": "master",
+          "revision": "c942c318e60cd8bc272de0d21e2266ebf90effff",
+          "version": null
+        }
+      },
+      {
+        "package": "Merge",
+        "repositoryURL": "git@github.com:vmanot/Merge.git",
+        "state": {
+          "branch": "master",
+          "revision": "8463645fa03e1ced6cfb207be16797306b1518ad",
+          "version": null
+        }
+      },
+      {
+        "package": "Network",
+        "repositoryURL": "https://github.com/vmanot/Network.git",
+        "state": {
+          "branch": "master",
+          "revision": "650ad2c28476f82395eed9f34732ba6149ab08f1",
+          "version": null
+        }
+      },
+      {
+        "package": "Reactor",
+        "repositoryURL": "https://github.com/vmanot/Reactor",
+        "state": {
+          "branch": "master",
+          "revision": "fa31cd77d96e201f9459a1709c29967584ae3f52",
+          "version": null
+        }
+      },
+      {
+        "package": "SwiftUIX",
+        "repositoryURL": "git@github.com:SwiftUIX/SwiftUIX.git",
+        "state": {
+          "branch": "master",
+          "revision": "646c1a3a3c09e542c5daa5d5fd230cec8e6f7d90",
+          "version": null
+        }
+      },
+      {
+        "package": "Task",
+        "repositoryURL": "git@github.com:vmanot/Task.git",
+        "state": {
+          "branch": "master",
+          "revision": "bc973411859ab0f65e48dbbc7499203b1ad75af0",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
