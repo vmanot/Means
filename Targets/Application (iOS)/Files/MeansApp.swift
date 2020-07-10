@@ -3,10 +3,20 @@
 //
 
 import API
+import FoundationX
 import Network
 import SwiftUIX
 
-final class MediumRepository: HTTPRepository<MediumAPI> {
+final class MediumRepository: HTTPRepository {
+    public let session = HTTPSession()
+    
+    @UserDefault(key: "personalAccessToken")
+    var personalAccessToken: String?
+    
+    public var interface: MediumAPI {
+        .init(personalAccessToken: personalAccessToken)
+    }
+    
     @Resource(get: \.getUser)
     var user: MediumAPI.Resources.User?
     
@@ -14,10 +24,8 @@ final class MediumRepository: HTTPRepository<MediumAPI> {
     var publications: [MediumAPI.Resources.Publication]?
     
     init() {
-        super.init(interface: .init(), session: .init())
-        
-        self.user = nil
-        self.publications = nil
+        user = nil
+        publications = nil
     }
 }
 
@@ -34,40 +42,106 @@ struct MeansApp: App {
     }
 }
 
+public struct LabeledText: View {
+    public let label: Text
+    public let content: Text
+    
+    public init(label: Text, content: Text) {
+        self.label = label
+        self.content = content
+    }
+    
+    public var body: some View {
+        HStack {
+            label.fixedSize()
+            
+            Spacer()
+            
+            content.fixedSize()
+        }
+    }
+}
+
 struct ContentView: View {
     @EnvironmentObject var repository: MediumRepository
     
     var body: some View {
+        TabView {
+            PublicationsView().tabItem {
+                Label("Publications", systemImage: "list.bullet.rectangle")
+            }
+            
+            UserView().tabItem {
+                Label("User", systemImage: .personFill)
+            }
+            
+            SettingsView().tabItem {
+                Label("Settings", systemImage: .gear)
+            }
+        }
+    }
+}
+
+struct PublicationsView: View {
+    @EnvironmentObject var repository: MediumRepository
+    
+    var body: some View {
         NavigationView {
-            VStack {
+            ZStack {
+                if let result = Result(resource: repository.$publications) {
+                    switch result {
+                        case .success(let publications):
+                            List(publications) { publication in
+                                VStack(alignment: .leading) {
+                                    Text(publication.name)
+                                        .font(.body, weight: .semibold)
+                                    
+                                    Text(publication.description)
+                                        .font(.body)
+                                }
+                            }
+                        case .failure(let error):
+                            Text("Error: \(error.localizedDescription)")
+                    }
+                } else {
+                    ActivityIndicator()
+                }
+            }
+            .navigationBarTitle("Publications")
+            .onAppear {
+                repository.$publications.fetchIfNecessary()
+            }
+        }
+    }
+}
+
+struct UserView: View {
+    @EnvironmentObject var repository: MediumRepository
+    
+    var body: some View {
+        NavigationView {
+            ZStack {
                 if let result = Result(resource: repository.$user) {
                     switch result {
                         case .success(let user):
-                            Text("Success")
-                        case .failure:
-                            Text("Failure")
+                            Form {
+                                Section(header: "Info") {
+                                    LabeledText(label: Text("Name"), content: Text(user.name))
+                                    LabeledText(label: Text("Username"), content: Text(user.username))
+                                }
+                            }
+                        case .failure(let error):
+                            Text("Error: \(error.localizedDescription)")
                     }
                 } else {
-                    VStack {
-                        ActivityIndicator()
-                        
-                        Button(action: repository.$user.refresh) {
-                            Text("Refresh")
-                        }
-                    }
+                    ActivityIndicator()
                 }
             }
-            .navigationBarTitle("User")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    PresentationLink(destination: SettingsView().environmentObject(repository)) {
-                        Image(systemName: .gear)
-                            .imageScale(.large)
-                    }
-                }
+            .navigationBarTitle("Me")
+            .onAppear {
+                repository.$user.fetchIfNecessary()
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -80,22 +154,12 @@ struct SettingsView: View {
                 Section(header: Text("Personal Access Token")) {
                     SecureField(
                         "Enter your token here...",
-                        text: $repository
-                            .interface
-                            .personalAccessToken
-                            .withDefaultValue("")
+                        text: $repository.personalAccessToken
                     )
                     .textContentType(.password)
                 }
             }
-            .navigationBarTitle("Settings", displayMode: .inline)
-            .toolbar {
-                ToolbarItem(placement: .destructiveAction) {
-                    DismissPresentationButton {
-                        Text("Done")
-                    }
-                }
-            }
+            .navigationBarTitle("Settings")
         }
     }
 }

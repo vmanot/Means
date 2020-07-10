@@ -10,9 +10,10 @@
 		D434037A24AE360D00846185 /* MeansApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D434037924AE360D00846185 /* MeansApp.swift */; };
 		D434037E24AE360F00846185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D434037D24AE360F00846185 /* Assets.xcassets */; };
 		D434038124AE360F00846185 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D434038024AE360F00846185 /* Preview Assets.xcassets */; };
-		D434038B24AE369D00846185 /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = D434038A24AE369D00846185 /* Network */; };
-		D434038E24AE36CC00846185 /* Reactor in Frameworks */ = {isa = PBXBuildFile; productRef = D434038D24AE36CC00846185 /* Reactor */; };
 		D44F015724AE812E00DA233F /* MediumAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44F015624AE812E00DA233F /* MediumAPI.swift */; };
+		D452D5DF24B8F77F0066E259 /* FoundationX in Frameworks */ = {isa = PBXBuildFile; productRef = D452D5DE24B8F77F0066E259 /* FoundationX */; };
+		D452D5E224B8F7A20066E259 /* Reactor in Frameworks */ = {isa = PBXBuildFile; productRef = D452D5E124B8F7A20066E259 /* Reactor */; };
+		D452D5E524B8F7C60066E259 /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = D452D5E424B8F7C60066E259 /* Network */; };
 		D483DB8624AF8A5F00948D8A /* Swallow in Frameworks */ = {isa = PBXBuildFile; productRef = D483DB8524AF8A5F00948D8A /* Swallow */; };
 /* End PBXBuildFile section */
 
@@ -31,9 +32,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D452D5E224B8F7A20066E259 /* Reactor in Frameworks */,
+				D452D5E524B8F7C60066E259 /* Network in Frameworks */,
 				D483DB8624AF8A5F00948D8A /* Swallow in Frameworks */,
-				D434038B24AE369D00846185 /* Network in Frameworks */,
-				D434038E24AE36CC00846185 /* Reactor in Frameworks */,
+				D452D5DF24B8F77F0066E259 /* FoundationX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,9 +128,10 @@
 			);
 			name = Means;
 			packageProductDependencies = (
-				D434038A24AE369D00846185 /* Network */,
-				D434038D24AE36CC00846185 /* Reactor */,
 				D483DB8524AF8A5F00948D8A /* Swallow */,
+				D452D5DE24B8F77F0066E259 /* FoundationX */,
+				D452D5E124B8F7A20066E259 /* Reactor */,
+				D452D5E424B8F7C60066E259 /* Network */,
 			);
 			productName = Means;
 			productReference = D434037624AE360D00846185 /* Means.app */;
@@ -158,9 +161,10 @@
 			);
 			mainGroup = D434036D24AE360C00846185;
 			packageReferences = (
-				D434038924AE369D00846185 /* XCRemoteSwiftPackageReference "Network" */,
-				D434038C24AE36CC00846185 /* XCRemoteSwiftPackageReference "Reactor" */,
 				D483DB8424AF8A5F00948D8A /* XCRemoteSwiftPackageReference "Swallow" */,
+				D452D5DD24B8F77F0066E259 /* XCRemoteSwiftPackageReference "FoundationX" */,
+				D452D5E024B8F7A20066E259 /* XCRemoteSwiftPackageReference "Reactor" */,
+				D452D5E324B8F7C60066E259 /* XCRemoteSwiftPackageReference "Network" */,
 			);
 			productRefGroup = D434037724AE360D00846185 /* Products */;
 			projectDirPath = "";
@@ -384,17 +388,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D434038924AE369D00846185 /* XCRemoteSwiftPackageReference "Network" */ = {
+		D452D5DD24B8F77F0066E259 /* XCRemoteSwiftPackageReference "FoundationX" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/vmanot/Network.git";
+			repositoryURL = "git@github.com:vmanot/FoundationX.git";
 			requirement = {
 				branch = master;
 				kind = branch;
 			};
 		};
-		D434038C24AE36CC00846185 /* XCRemoteSwiftPackageReference "Reactor" */ = {
+		D452D5E024B8F7A20066E259 /* XCRemoteSwiftPackageReference "Reactor" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/vmanot/Reactor";
+			repositoryURL = "git@github.com:vmanot/Reactor.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		D452D5E324B8F7C60066E259 /* XCRemoteSwiftPackageReference "Network" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:vmanot/Network.git";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -411,15 +423,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D434038A24AE369D00846185 /* Network */ = {
+		D452D5DE24B8F77F0066E259 /* FoundationX */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D434038924AE369D00846185 /* XCRemoteSwiftPackageReference "Network" */;
-			productName = Network;
+			package = D452D5DD24B8F77F0066E259 /* XCRemoteSwiftPackageReference "FoundationX" */;
+			productName = FoundationX;
 		};
-		D434038D24AE36CC00846185 /* Reactor */ = {
+		D452D5E124B8F7A20066E259 /* Reactor */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D434038C24AE36CC00846185 /* XCRemoteSwiftPackageReference "Reactor" */;
+			package = D452D5E024B8F7A20066E259 /* XCRemoteSwiftPackageReference "Reactor" */;
 			productName = Reactor;
+		};
+		D452D5E424B8F7C60066E259 /* Network */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D452D5E324B8F7C60066E259 /* XCRemoteSwiftPackageReference "Network" */;
+			productName = Network;
 		};
 		D483DB8524AF8A5F00948D8A /* Swallow */ = {
 			isa = XCSwiftPackageProductDependency;

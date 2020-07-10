@@ -9,7 +9,7 @@ import Network
 import Swallow
 import SwiftUIX
 
-public struct MediumAPI: Initiable, RESTfulHTTPInterface {
+public struct MediumAPI: RESTfulHTTPInterface {
     public struct Resources { }
     public struct Requests { }
     
@@ -17,14 +17,32 @@ public struct MediumAPI: Initiable, RESTfulHTTPInterface {
     public let getUser = Endpoint(Requests.GetUser.self)
     public let getUserPublications = Endpoint(Requests.GetUserPublications.self)
     
-    public var personalAccessToken: String? = "TesT"
+    public var personalAccessToken: String?
     
     public var id: AnyHashable {
         .init(personalAccessToken)
     }
-    
-    public init() {
+}
+
+extension MediumAPI {
+    public final class Endpoint<Input: HTTPRequestDescriptor, Output: Decodable>: BaseHTTPEndpoint<Input, Output, MediumAPI> {
+        override public func buildRequest(for root: Root, from input: Input) throws -> HTTPRequest {
+            try super
+                .buildRequest(for: root, from: input)
+                .header(.authorization(.bearer, try root.personalAccessToken.unwrap()))
+                .header(.contentType(.json))
+        }
         
+        override public func decodeOutput(from response: HTTPResponse) throws -> Output {
+            try response.validate()
+            
+            return try JSONDecoder().decode(OutputWrapper.self, from: response.data).data
+        }
+    }
+    
+    /// Needed because Medium wraps all responses in a `{ data: ... }`.
+    private struct OutputWrapper<Output: Decodable>: Decodable {
+        var data: Output
     }
 }
 
@@ -83,28 +101,5 @@ extension MediumAPI.Requests {
         }
         
         public typealias Output = [MediumAPI.Resources.Publication]
-    }
-}
-
-extension MediumAPI {
-    public final class Endpoint<Input: HTTPRequestDescriptor, Output: Decodable>: BaseHTTPEndpoint<Input, Output, MediumAPI> {
-        override public func buildRequest(for root: Root, from input: Input) throws -> HTTPRequest {
-            try super
-                .buildRequest(for: root, from: input)
-                .header(.authorization(.bearer, try root.personalAccessToken.unwrap()))
-                .header(.contentType(.json))
-        }
-        
-        override public func decodeOutput(from response: HTTPResponse) throws -> Output {
-            try response.validate()
-            
-            let decoder = JSONDecoder()
-            
-            return try decoder.decode(OutputWrapper.self, from: response.data).data
-        }
-    }
-    
-    struct OutputWrapper<Output: Decodable>: Decodable {
-        var data: Output
     }
 }
