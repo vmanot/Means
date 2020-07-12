@@ -3,7 +3,7 @@
 //
 
 import API
-import Combine
+import LinkPresentation
 import Merge
 import Network
 import Swallow
@@ -61,6 +61,15 @@ extension MediumAPI.Resources {
         public let description: String
         public let url: URL
         public let imageURL: URL?
+        
+        public var metadata: LPLinkMetadata {
+            let result = LPLinkMetadata()
+            
+            result.originalURL = url
+            result.title = name
+            
+            return result
+        }
     }
 }
 

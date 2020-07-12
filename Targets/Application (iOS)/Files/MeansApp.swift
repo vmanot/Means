@@ -4,6 +4,7 @@
 
 import API
 import FoundationX
+import LinkPresentation
 import Network
 import SwiftUIX
 
@@ -11,7 +12,11 @@ final class MediumRepository: HTTPRepository {
     public let session = HTTPSession()
     
     @UserDefault(key: "personalAccessToken")
-    var personalAccessToken: String?
+    var personalAccessToken: String? {
+        willSet {
+            objectWillChange.send()
+        }
+    }
     
     public var interface: MediumAPI {
         .init(personalAccessToken: personalAccessToken)
@@ -98,6 +103,9 @@ struct PublicationsView: View {
                                     
                                     Text(publication.description)
                                         .font(.body)
+                                    
+                                    LinkPresentationView(metadata: publication.metadata)
+                                        .compact(true)
                                 }
                             }
                         case .failure(let error):
