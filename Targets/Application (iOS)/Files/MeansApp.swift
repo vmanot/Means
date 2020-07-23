@@ -6,6 +6,7 @@ import API
 import FoundationX
 import LinkPresentation
 import Network
+import ObjectiveC
 import SwiftUIX
 
 final class MediumRepository: HTTPRepository {
