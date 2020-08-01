@@ -5,7 +5,7 @@
 import API
 import FoundationX
 import LinkPresentation
-import Network
+import NetworkKit
 import ObjectiveC
 import SwiftUIX
 
@@ -106,7 +106,7 @@ struct PublicationsView: View {
                                         .font(.body)
                                     
                                     LinkPresentationView(metadata: publication.metadata)
-                                        .compact(true)
+                                        .disableMetadataFetch(true)
                                 }
                             }
                         case .failure(let error):

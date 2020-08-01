@@ -11,10 +11,9 @@
 		D434037E24AE360F00846185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D434037D24AE360F00846185 /* Assets.xcassets */; };
 		D434038124AE360F00846185 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D434038024AE360F00846185 /* Preview Assets.xcassets */; };
 		D44F015724AE812E00DA233F /* MediumAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44F015624AE812E00DA233F /* MediumAPI.swift */; };
-		D452D5DF24B8F77F0066E259 /* FoundationX in Frameworks */ = {isa = PBXBuildFile; productRef = D452D5DE24B8F77F0066E259 /* FoundationX */; };
-		D452D5E224B8F7A20066E259 /* Reactor in Frameworks */ = {isa = PBXBuildFile; productRef = D452D5E124B8F7A20066E259 /* Reactor */; };
-		D452D5E524B8F7C60066E259 /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = D452D5E424B8F7C60066E259 /* Network */; };
-		D483DB8624AF8A5F00948D8A /* Swallow in Frameworks */ = {isa = PBXBuildFile; productRef = D483DB8524AF8A5F00948D8A /* Swallow */; };
+		D4FF87F224D5E379000099B8 /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = D4FF87F124D5E379000099B8 /* NetworkKit */; };
+		D4FF87F524D5E38F000099B8 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = D4FF87F424D5E38F000099B8 /* SwiftUIX */; };
+		D4FF87F824D5E463000099B8 /* FoundationX in Frameworks */ = {isa = PBXBuildFile; productRef = D4FF87F724D5E463000099B8 /* FoundationX */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +31,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D452D5E224B8F7A20066E259 /* Reactor in Frameworks */,
-				D452D5E524B8F7C60066E259 /* Network in Frameworks */,
-				D483DB8624AF8A5F00948D8A /* Swallow in Frameworks */,
-				D452D5DF24B8F77F0066E259 /* FoundationX in Frameworks */,
+				D4FF87F224D5E379000099B8 /* NetworkKit in Frameworks */,
+				D4FF87F824D5E463000099B8 /* FoundationX in Frameworks */,
+				D4FF87F524D5E38F000099B8 /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,10 +126,9 @@
 			);
 			name = Means;
 			packageProductDependencies = (
-				D483DB8524AF8A5F00948D8A /* Swallow */,
-				D452D5DE24B8F77F0066E259 /* FoundationX */,
-				D452D5E124B8F7A20066E259 /* Reactor */,
-				D452D5E424B8F7C60066E259 /* Network */,
+				D4FF87F124D5E379000099B8 /* NetworkKit */,
+				D4FF87F424D5E38F000099B8 /* SwiftUIX */,
+				D4FF87F724D5E463000099B8 /* FoundationX */,
 			);
 			productName = Means;
 			productReference = D434037624AE360D00846185 /* Means.app */;
@@ -161,10 +158,9 @@
 			);
 			mainGroup = D434036D24AE360C00846185;
 			packageReferences = (
-				D483DB8424AF8A5F00948D8A /* XCRemoteSwiftPackageReference "Swallow" */,
-				D452D5DD24B8F77F0066E259 /* XCRemoteSwiftPackageReference "FoundationX" */,
-				D452D5E024B8F7A20066E259 /* XCRemoteSwiftPackageReference "Reactor" */,
-				D452D5E324B8F7C60066E259 /* XCRemoteSwiftPackageReference "Network" */,
+				D4FF87F024D5E379000099B8 /* XCRemoteSwiftPackageReference "NetworkKit" */,
+				D4FF87F324D5E38F000099B8 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+				D4FF87F624D5E463000099B8 /* XCRemoteSwiftPackageReference "FoundationX" */,
 			);
 			productRefGroup = D434037724AE360D00846185 /* Products */;
 			projectDirPath = "";
@@ -388,33 +384,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D452D5DD24B8F77F0066E259 /* XCRemoteSwiftPackageReference "FoundationX" */ = {
+		D4FF87F024D5E379000099B8 /* XCRemoteSwiftPackageReference "NetworkKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:vmanot/NetworkKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		D4FF87F324D5E38F000099B8 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SwiftUIX/SwiftUIX.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		D4FF87F624D5E463000099B8 /* XCRemoteSwiftPackageReference "FoundationX" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:vmanot/FoundationX.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		D452D5E024B8F7A20066E259 /* XCRemoteSwiftPackageReference "Reactor" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:vmanot/Reactor.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		D452D5E324B8F7C60066E259 /* XCRemoteSwiftPackageReference "Network" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:vmanot/Network.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		D483DB8424AF8A5F00948D8A /* XCRemoteSwiftPackageReference "Swallow" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:vmanot/Swallow.git";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -423,25 +411,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D452D5DE24B8F77F0066E259 /* FoundationX */ = {
+		D4FF87F124D5E379000099B8 /* NetworkKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D452D5DD24B8F77F0066E259 /* XCRemoteSwiftPackageReference "FoundationX" */;
+			package = D4FF87F024D5E379000099B8 /* XCRemoteSwiftPackageReference "NetworkKit" */;
+			productName = NetworkKit;
+		};
+		D4FF87F424D5E38F000099B8 /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4FF87F324D5E38F000099B8 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
+		};
+		D4FF87F724D5E463000099B8 /* FoundationX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4FF87F624D5E463000099B8 /* XCRemoteSwiftPackageReference "FoundationX" */;
 			productName = FoundationX;
-		};
-		D452D5E124B8F7A20066E259 /* Reactor */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D452D5E024B8F7A20066E259 /* XCRemoteSwiftPackageReference "Reactor" */;
-			productName = Reactor;
-		};
-		D452D5E424B8F7C60066E259 /* Network */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D452D5E324B8F7C60066E259 /* XCRemoteSwiftPackageReference "Network" */;
-			productName = Network;
-		};
-		D483DB8524AF8A5F00948D8A /* Swallow */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D483DB8424AF8A5F00948D8A /* XCRemoteSwiftPackageReference "Swallow" */;
-			productName = Swallow;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

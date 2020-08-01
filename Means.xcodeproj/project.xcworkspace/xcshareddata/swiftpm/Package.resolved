@@ -6,16 +6,16 @@
         "repositoryURL": "git@github.com:vmanot/API.git",
         "state": {
           "branch": "master",
-          "revision": "71bcf24fa70203e3a22530225f0697fe87d0eee8",
+          "revision": "c83fe4b2c396d33fa4f7866288a982b02d28aa36",
           "version": null
         }
       },
       {
-        "package": "Coordinator",
-        "repositoryURL": "git@github.com:SwiftUIX/Coordinator.git",
+        "package": "FoundationX",
+        "repositoryURL": "git@github.com:vmanot/FoundationX.git",
         "state": {
           "branch": "master",
-          "revision": "c942c318e60cd8bc272de0d21e2266ebf90effff",
+          "revision": "4954d9be398f6b03e5b912914a82c9bc8e937c04",
           "version": null
         }
       },
@@ -24,25 +24,25 @@
         "repositoryURL": "git@github.com:vmanot/Merge.git",
         "state": {
           "branch": "master",
-          "revision": "8463645fa03e1ced6cfb207be16797306b1518ad",
+          "revision": "d0cabdc795fc2267a17d7e597cd81ea1a018d542",
           "version": null
         }
       },
       {
-        "package": "Network",
-        "repositoryURL": "https://github.com/vmanot/Network.git",
+        "package": "NetworkKit",
+        "repositoryURL": "git@github.com:vmanot/NetworkKit.git",
         "state": {
           "branch": "master",
-          "revision": "650ad2c28476f82395eed9f34732ba6149ab08f1",
+          "revision": "d7a90a8960d9419c53fa91ef1e2aa1f741368719",
           "version": null
         }
       },
       {
-        "package": "Reactor",
-        "repositoryURL": "https://github.com/vmanot/Reactor",
+        "package": "Swallow",
+        "repositoryURL": "git@github.com:vmanot/Swallow.git",
         "state": {
           "branch": "master",
-          "revision": "fa31cd77d96e201f9459a1709c29967584ae3f52",
+          "revision": "4df88dcf533327206b16bbef8e255b41f9b5275f",
           "version": null
         }
       },
@@ -51,7 +51,7 @@
         "repositoryURL": "git@github.com:SwiftUIX/SwiftUIX.git",
         "state": {
           "branch": "master",
-          "revision": "646c1a3a3c09e542c5daa5d5fd230cec8e6f7d90",
+          "revision": "189b33f0406bf57bcc13ebd59fba3d93671d3837",
           "version": null
         }
       },
@@ -60,7 +60,7 @@
         "repositoryURL": "git@github.com:vmanot/Task.git",
         "state": {
           "branch": "master",
-          "revision": "bc973411859ab0f65e48dbbc7499203b1ad75af0",
+          "revision": "6e960a86d6c0213409d9dfbd0221361f6f17f5df",
           "version": null
         }
       }

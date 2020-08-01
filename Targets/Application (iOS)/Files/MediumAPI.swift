@@ -2,12 +2,10 @@
 // Copyright (c) Vatsal Manot
 //
 
-import API
+import Foundation
 import LinkPresentation
-import Merge
-import Network
+import NetworkKit
 import Swallow
-import SwiftUIX
 
 public struct MediumAPI: RESTfulHTTPInterface {
     public struct Resources { }
@@ -20,7 +18,7 @@ public struct MediumAPI: RESTfulHTTPInterface {
     public var personalAccessToken: String?
     
     public var id: AnyHashable {
-        .init(personalAccessToken)
+        personalAccessToken
     }
 }
 
