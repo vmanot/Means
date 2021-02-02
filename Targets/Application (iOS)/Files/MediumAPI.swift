@@ -8,8 +8,13 @@ import NetworkKit
 import Swallow
 
 public struct MediumAPI: RESTfulHTTPInterface {
-    public struct Resources { }
-    public struct Requests { }
+    public struct Resources {
+        
+    }
+    
+    public struct Requests {
+        
+    }
     
     public let host = URL(string: "https://api.medium.com/v1")!
     public let getUser = Endpoint(Requests.GetUser.self)
@@ -23,15 +28,21 @@ public struct MediumAPI: RESTfulHTTPInterface {
 }
 
 extension MediumAPI {
-    public final class Endpoint<Input: HTTPRequestDescriptor, Output: Decodable>: BaseHTTPEndpoint<Input, Output, MediumAPI> {
-        override public func buildRequest(for root: Root, from input: Input) throws -> HTTPRequest {
+    public final class Endpoint<Input: HTTPRequestPopulator, Output: Decodable>: BaseHTTPEndpoint<MediumAPI, Input, Output, Void> {
+        override public func buildRequestBase(
+            from input: Input,
+            context: BuildRequestContext
+        ) throws -> HTTPRequest {
             try super
-                .buildRequest(for: root, from: input)
-                .header(.authorization(.bearer, try root.personalAccessToken.unwrap()))
+                .buildRequest(from: input, context: context)
+                .header(.authorization(.bearer, try context.root.personalAccessToken.unwrap()))
                 .header(.contentType(.json))
         }
         
-        override public func decodeOutput(from response: HTTPResponse) throws -> Output {
+        override public func decodeOutputBase(
+            from response: HTTPResponse,
+            context: DecodeOutputContext
+        ) throws -> Output {
             try response.validate()
             
             return try JSONDecoder().decode(OutputWrapper.self, from: response.data).data
@@ -45,7 +56,7 @@ extension MediumAPI {
 }
 
 extension MediumAPI.Resources {
-    public struct User: Identifiable, RESTfulResource {
+    public struct User: Codable, Identifiable {
         public let id: String
         public let username: String
         public let name: String
@@ -53,7 +64,7 @@ extension MediumAPI.Resources {
         public let imageURL: URL?
     }
     
-    public struct Publication: Identifiable, RESTfulResource {
+    public struct Publication: Codable, Identifiable {
         public let id: String
         public let name: String
         public let description: String
@@ -73,7 +84,7 @@ extension MediumAPI.Resources {
 
 extension MediumAPI.Requests {
     public struct GetUser: EndpointDescriptor {
-        public struct Input: HTTPRequestDescriptor, Initiable {
+        public struct Input: HTTPRequestPopulator, Initiable {
             public init() {
                 
             }
@@ -89,15 +100,15 @@ extension MediumAPI.Requests {
     }
     
     public struct GetUserPublications: EndpointDescriptor {
-        public struct Input: HTTPRequestDescriptor, RESTfulResourceConstructible {
+        public struct Input: HTTPRequestPopulator {
             public let userID: String
             
             public init(userID: String) {
                 self.userID = userID
             }
             
-            public init(from resource: MediumAPI.Resources.User) throws {
-                self.init(userID: resource.id)
+            public init(from user: MediumAPI.Resources.User) throws {
+                self.init(userID: user.id)
             }
             
             public func populate(_ request: HTTPRequest) -> HTTPRequest {

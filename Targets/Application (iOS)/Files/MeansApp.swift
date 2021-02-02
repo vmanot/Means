@@ -8,25 +8,26 @@ import LinkPresentation
 import NetworkKit
 import ObjectiveC
 import SwiftUIX
+import Swallow
 
 final class MediumRepository: HTTPRepository {
     public let session = HTTPSession()
+     
+    public var interface: MediumAPI {
+        .init(personalAccessToken: personalAccessToken)
+    }
     
-    @UserDefault(key: "personalAccessToken")
+    @UserDefault("personalAccessToken")
     var personalAccessToken: String? {
         willSet {
             objectWillChange.send()
         }
     }
     
-    public var interface: MediumAPI {
-        .init(personalAccessToken: personalAccessToken)
-    }
-    
     @Resource(get: \.getUser)
     var user: MediumAPI.Resources.User?
     
-    @Resource(get: \.getUserPublications, from: \.$user)
+    @Resource(get: \.getUserPublications, from: { try .init(from: $0.user.unwrap()) })
     var publications: [MediumAPI.Resources.Publication]?
     
     init() {
@@ -94,31 +95,30 @@ struct PublicationsView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                if let result = Result(resource: repository.$publications) {
-                    switch result {
-                        case .success(let publications):
-                            List(publications) { publication in
-                                VStack(alignment: .leading) {
-                                    Text(publication.name)
-                                        .font(.body, weight: .semibold)
-                                    
-                                    Text(publication.description)
-                                        .font(.body)
-                                    
-                                    LinkPresentationView(metadata: publication.metadata)
-                                        .disableMetadataFetch(true)
-                                }
-                            }
-                        case .failure(let error):
-                            Text("Error: \(error.localizedDescription)")
+                ResourceView(repository.$publications) { publications in
+                    List(publications) { publication in
+                        VStack(alignment: .leading) {
+                            Text(publication.name)
+                                .font(.body, weight: .semibold)
+                            
+                            Text(publication.description)
+                                .font(.body)
+                            
+                            LinkPresentationView(metadata: publication.metadata)
+                                .disableMetadataFetch(true)
+                        }
                     }
-                } else {
+                } failure: { error in
+                    Text("Error: \(error.localizedDescription)")
+                } placeholder: {
                     ActivityIndicator()
                 }
             }
             .navigationBarTitle("Publications")
             .onAppear {
-                repository.$publications.fetchIfNecessary()
+                if repository.publications == nil {
+                    repository.$publications.fetch()
+                }
             }
         }
     }
@@ -130,25 +130,22 @@ struct UserView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                if let result = Result(resource: repository.$user) {
-                    switch result {
-                        case .success(let user):
-                            Form {
-                                Section(header: "Info") {
-                                    LabeledText(label: Text("Name"), content: Text(user.name))
-                                    LabeledText(label: Text("Username"), content: Text(user.username))
-                                }
-                            }
-                        case .failure(let error):
-                            Text("Error: \(error.localizedDescription)")
+                ResourceView(repository.$user) { user in
+                    Form {
+                        Section(header: "Info") {
+                            LabeledText(label: Text("Name"), content: Text(user.name))
+                            LabeledText(label: Text("Username"), content: Text(user.username))
+                        }
                     }
-                } else {
+                } failure: { error in
+                    Text("Error: \(error.localizedDescription)")
+                } placeholder: {
                     ActivityIndicator()
                 }
             }
             .navigationBarTitle("Me")
             .onAppear {
-                repository.$user.fetchIfNecessary()
+                repository.$user.fetch()
             }
         }
     }
