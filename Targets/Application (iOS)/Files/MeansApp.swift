@@ -17,12 +17,8 @@ final class MediumRepository: HTTPRepository {
         .init(personalAccessToken: personalAccessToken)
     }
     
-    @UserDefault("personalAccessToken")
-    var personalAccessToken: String? {
-        willSet {
-            objectWillChange.send()
-        }
-    }
+    @UserDefault.Published("personalAccessToken")
+    var personalAccessToken: String?
     
     @Resource(get: \.getUser)
     var user: MediumAPI.Resources.User?

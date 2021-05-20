@@ -3,64 +3,64 @@
     "pins": [
       {
         "package": "API",
-        "repositoryURL": "git@github.com:vmanot/API.git",
+        "repositoryURL": "https://github.com/vmanot/API.git",
         "state": {
           "branch": "master",
-          "revision": "c83fe4b2c396d33fa4f7866288a982b02d28aa36",
+          "revision": "0f119adab39b02af28ba2be9ac7f7ce0e8366b0e",
+          "version": null
+        }
+      },
+      {
+        "package": "Compute",
+        "repositoryURL": "https://github.com/vmanot/Compute.git",
+        "state": {
+          "branch": "master",
+          "revision": "adc134acb414cd402d76fe0e3c0ae12f7c116872",
           "version": null
         }
       },
       {
         "package": "FoundationX",
-        "repositoryURL": "git@github.com:vmanot/FoundationX.git",
+        "repositoryURL": "https://github.com/vmanot/FoundationX.git",
         "state": {
           "branch": "master",
-          "revision": "4954d9be398f6b03e5b912914a82c9bc8e937c04",
+          "revision": "c7147cac78d19a2bb7323bacb48b50b1697dcbab",
           "version": null
         }
       },
       {
         "package": "Merge",
-        "repositoryURL": "git@github.com:vmanot/Merge.git",
+        "repositoryURL": "https://github.com/vmanot/Merge.git",
         "state": {
           "branch": "master",
-          "revision": "d0cabdc795fc2267a17d7e597cd81ea1a018d542",
+          "revision": "de023d156b9437824dc4b34b3c9a1ac13b2e2b5a",
           "version": null
         }
       },
       {
         "package": "NetworkKit",
-        "repositoryURL": "git@github.com:vmanot/NetworkKit.git",
+        "repositoryURL": "https://github.com/vmanot/NetworkKit.git",
         "state": {
           "branch": "master",
-          "revision": "d7a90a8960d9419c53fa91ef1e2aa1f741368719",
+          "revision": "c2fb8c640e276d32d7ed7b7067cd6e833baec66d",
           "version": null
         }
       },
       {
         "package": "Swallow",
-        "repositoryURL": "git@github.com:vmanot/Swallow.git",
+        "repositoryURL": "https://github.com/vmanot/Swallow.git",
         "state": {
           "branch": "master",
-          "revision": "4df88dcf533327206b16bbef8e255b41f9b5275f",
+          "revision": "e932054c9a843509ba894b85b3c8c628e3b6e83a",
           "version": null
         }
       },
       {
         "package": "SwiftUIX",
-        "repositoryURL": "git@github.com:SwiftUIX/SwiftUIX.git",
+        "repositoryURL": "https://github.com/SwiftUIX/SwiftUIX.git",
         "state": {
           "branch": "master",
-          "revision": "189b33f0406bf57bcc13ebd59fba3d93671d3837",
-          "version": null
-        }
-      },
-      {
-        "package": "Task",
-        "repositoryURL": "git@github.com:vmanot/Task.git",
-        "state": {
-          "branch": "master",
-          "revision": "6e960a86d6c0213409d9dfbd0221361f6f17f5df",
+          "revision": "a1de8f9d861545f0e7c9317574ec67da94ef4af8",
           "version": null
         }
       }

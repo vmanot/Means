@@ -34,7 +34,7 @@ extension MediumAPI {
             context: BuildRequestContext
         ) throws -> HTTPRequest {
             try super
-                .buildRequest(from: input, context: context)
+                .buildRequestBase(from: input, context: context)
                 .header(.authorization(.bearer, try context.root.personalAccessToken.unwrap()))
                 .header(.contentType(.json))
         }

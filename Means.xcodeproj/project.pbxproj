@@ -11,9 +11,8 @@
 		D434037E24AE360F00846185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D434037D24AE360F00846185 /* Assets.xcassets */; };
 		D434038124AE360F00846185 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D434038024AE360F00846185 /* Preview Assets.xcassets */; };
 		D44F015724AE812E00DA233F /* MediumAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44F015624AE812E00DA233F /* MediumAPI.swift */; };
-		D4FF87F224D5E379000099B8 /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = D4FF87F124D5E379000099B8 /* NetworkKit */; };
-		D4FF87F524D5E38F000099B8 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = D4FF87F424D5E38F000099B8 /* SwiftUIX */; };
-		D4FF87F824D5E463000099B8 /* FoundationX in Frameworks */ = {isa = PBXBuildFile; productRef = D4FF87F724D5E463000099B8 /* FoundationX */; };
+		D48F028725C97AC800B58ECA /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = D48F028625C97AC800B58ECA /* SwiftUIX */; };
+		D48F028A25C97AE600B58ECA /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = D48F028925C97AE600B58ECA /* NetworkKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +30,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4FF87F224D5E379000099B8 /* NetworkKit in Frameworks */,
-				D4FF87F824D5E463000099B8 /* FoundationX in Frameworks */,
-				D4FF87F524D5E38F000099B8 /* SwiftUIX in Frameworks */,
+				D48F028A25C97AE600B58ECA /* NetworkKit in Frameworks */,
+				D48F028725C97AC800B58ECA /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,9 +124,8 @@
 			);
 			name = Means;
 			packageProductDependencies = (
-				D4FF87F124D5E379000099B8 /* NetworkKit */,
-				D4FF87F424D5E38F000099B8 /* SwiftUIX */,
-				D4FF87F724D5E463000099B8 /* FoundationX */,
+				D48F028625C97AC800B58ECA /* SwiftUIX */,
+				D48F028925C97AE600B58ECA /* NetworkKit */,
 			);
 			productName = Means;
 			productReference = D434037624AE360D00846185 /* Means.app */;
@@ -158,9 +155,8 @@
 			);
 			mainGroup = D434036D24AE360C00846185;
 			packageReferences = (
-				D4FF87F024D5E379000099B8 /* XCRemoteSwiftPackageReference "NetworkKit" */,
-				D4FF87F324D5E38F000099B8 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
-				D4FF87F624D5E463000099B8 /* XCRemoteSwiftPackageReference "FoundationX" */,
+				D48F028525C97AC800B58ECA /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+				D48F028825C97AE600B58ECA /* XCRemoteSwiftPackageReference "NetworkKit" */,
 			);
 			productRefGroup = D434037724AE360D00846185 /* Products */;
 			projectDirPath = "";
@@ -384,25 +380,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D4FF87F024D5E379000099B8 /* XCRemoteSwiftPackageReference "NetworkKit" */ = {
+		D48F028525C97AC800B58ECA /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:vmanot/NetworkKit.git";
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX.git";
 			requirement = {
 				branch = master;
 				kind = branch;
 			};
 		};
-		D4FF87F324D5E38F000099B8 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+		D48F028825C97AE600B58ECA /* XCRemoteSwiftPackageReference "NetworkKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:SwiftUIX/SwiftUIX.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		D4FF87F624D5E463000099B8 /* XCRemoteSwiftPackageReference "FoundationX" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:vmanot/FoundationX.git";
+			repositoryURL = "https://github.com/vmanot/NetworkKit.git";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -411,20 +399,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D4FF87F124D5E379000099B8 /* NetworkKit */ = {
+		D48F028625C97AC800B58ECA /* SwiftUIX */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D4FF87F024D5E379000099B8 /* XCRemoteSwiftPackageReference "NetworkKit" */;
-			productName = NetworkKit;
-		};
-		D4FF87F424D5E38F000099B8 /* SwiftUIX */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D4FF87F324D5E38F000099B8 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			package = D48F028525C97AC800B58ECA /* XCRemoteSwiftPackageReference "SwiftUIX" */;
 			productName = SwiftUIX;
 		};
-		D4FF87F724D5E463000099B8 /* FoundationX */ = {
+		D48F028925C97AE600B58ECA /* NetworkKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D4FF87F624D5E463000099B8 /* XCRemoteSwiftPackageReference "FoundationX" */;
-			productName = FoundationX;
+			package = D48F028825C97AE600B58ECA /* XCRemoteSwiftPackageReference "NetworkKit" */;
+			productName = NetworkKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
